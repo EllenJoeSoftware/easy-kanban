@@ -1,0 +1,14 @@
+{
+  "name": "easy-kanban",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["packages/*", "apps/*", "mcp"],
+  "scripts": {
+    "dev:server": "npm run dev -w @easy-kanban/server",
+    "dev:web": "npm run dev -w @easy-kanban/web",
+    "build": "npm run build -w @easy-kanban/server && npm run build -w @easy-kanban/web && npm run build -w @easy-kanban/mcp",
+    "start": "node --disable-warning=ExperimentalWarning apps/server/dist/index.js",
+    "typecheck": "npm run typecheck -w @easy-kanban/server && npm run typecheck -w @easy-kanban/web"
+  },
+  "engines": { "node": ">=22.13" }
+}

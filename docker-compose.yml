@@ -1,0 +1,16 @@
+services:
+  easy-kanban:
+    build: .
+    image: easy-kanban:latest
+    container_name: easy-kanban
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8080}:8080"
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+    volumes:
+      - easy-kanban-data:/data
+
+volumes:
+  easy-kanban-data:
